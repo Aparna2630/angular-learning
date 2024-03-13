@@ -1,0 +1,29 @@
+<!-- <p>From Post : {{parentmsg}}</p> -->
+
+<!-- <input type="text" (keyup)="Message($event)"> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 form">
+            <p class="title">Post Form</p>
+            <input type="text" [(ngModel)]="Title" placeholder="Post Title">
+            <br>
+            <textarea [(ngModel)]="Description" class="mt-2" placeholder="Post Description"></textarea>
+            <br>
+            <input type="text" placeholder="Post Image URL" class="mt-2" [(ngModel)]="image">
+            <br>
+            <input type="text" placeholder="Post URL" class="mt-3" [(ngModel)]="postUrl">
+            <br>
+            <input type="checkbox" class="mt-4" [(ngModel)]="TitleColor"> <label>Add Background</label>
+        </div>
+        <div class="col-6 output">
+            <p class="title">Output</p>
+            <p [style.backgroundColor]="TitleColor ? 'pink' : ''">Title : {{Title}}</p>
+            <p>Description : {{Description}}</p>
+            <label>Image </label><img [src]="image">
+            <br>
+          <label class="mt-3">Url : </label>  <a [href]="postUrl" target="_blank">Click me to view the site!!</a>
+        </div>
+    </div>
+
+</div>

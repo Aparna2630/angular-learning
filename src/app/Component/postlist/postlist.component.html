@@ -1,0 +1,12 @@
+<!-- <h2>Post List</h2>
+
+<p>MessageText : {{MessageText}}</p>
+<input type="text" [(ngModel)] = 'msg'>
+
+<app-post [parentmsg]="msg" (suriya)="suriyaMesage($event)">  </app-post> -->
+
+
+<p> From Post list</p>
+<ul *ngFor="let User of UserArrays">
+    <li>{{User.name}}</li>
+</ul>

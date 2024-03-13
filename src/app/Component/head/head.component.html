@@ -1,0 +1,51 @@
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-6 form">
+            <p>User Details</p>
+
+            <h1>{{Name | append}}</h1>
+            <input type="text" class="mt-4" placeholder="Name" [(ngModel)]="Name">
+            <br>
+            <input type="text" class="mt-4" placeholder="email" [(ngModel)]="email">
+            <br>
+            <textarea class="mt-4" placeholder="Address" [(ngModel)]="Address"></textarea>
+            <br>
+            <button type="submit" class="btn btn-success mt-4" (click)="OnSubmit()">Save Data</button>
+        </div>
+        <div class="col-6 output">
+            <p>Output</p>
+            <div *ngIf="this.DetailsArray.length > 0 ; then tableData else NoData"> </div>
+          <ng-template #tableData>
+            <table class="tableData">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let data of DetailsArray ; index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{data.Name}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.Address}}</td>
+                    <td> <button type="submit" class="btn btn-danger mt-4" (click)="OnDelete(i)">Delete</button></td>
+                </tr>
+            </table>
+          </ng-template>
+            <ng-template #NoData>
+                <p style="text-align: center;">No Data Found!!</p>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+<h1>{{price | currency : 'INR'}}</h1> -->
+
+<p> From head</p>
+<button type="button" class="btn btn-success" (click)="AddData()">Add Data to service</button><br>
+<button type="button" class="btn btn-success mt-2" (click)="AddDatahead()">Add Data in only head</button>
+
+<ul *ngFor="let User of UserArrays">
+    <li>{{User.name}}</li>
+</ul>
