@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonService } from '../service/common.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CommonService } from '../service/common.service';
   templateUrl: './head.component.html',
   styleUrls: ['./head.component.css']
 })
-export class HeadComponent implements OnInit {
+export class HeadComponent implements OnInit,AfterViewInit {
 
   DetailsArray: Array<any> = []
   Name: string = ''
@@ -14,7 +14,7 @@ export class HeadComponent implements OnInit {
   Address: string = ''
   price: number = 54879865554421
   UserArrays: Array<any> = []
-
+  ArrayData : Array<any> = []
 
   constructor(private commonservice: CommonService) {
     console.log('Constructor is calling')
@@ -22,10 +22,17 @@ export class HeadComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.UserArrays = this.commonservice.UserArray    
-    console.log('OnInit is called')
+    this.UserArrays = this.commonservice.UserArray
+
+    console.log(this.UserArrays,'OnInit is called')
   }
 
+  ngAfterViewInit(): void {
+
+    this.UserArrays.map(e=>{
+      this.ArrayData.push(e)
+    })
+  }
 
   AddData() {
     var arrayy = {
@@ -33,6 +40,7 @@ export class HeadComponent implements OnInit {
     }
 
     this.commonservice.AddData(arrayy)
+    this.ArrayData.push(arrayy)
   }
 
 
@@ -41,7 +49,7 @@ export class HeadComponent implements OnInit {
       id: 10, name: 'john head'
     }
     
-    this.UserArrays.push(arrayy)
+    this.ArrayData.push(arrayy)
   }
 
 
