@@ -9,6 +9,8 @@ import { PostlistComponent } from './Component/postlist/postlist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppendPipe } from './Component/append.pipe';
+import { UserformComponent } from './Component/userform/userform.component';
+import { NewFormComponent } from './Component/new-form/new-form.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { AppendPipe } from './Component/append.pipe';
     PostComponent,
     PostlistComponent,
     AppendPipe,
+    UserformComponent,
+    NewFormComponent,
   ],
   imports: [
     BrowserModule,

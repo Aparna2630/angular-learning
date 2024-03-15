@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonService } from '../service/common.service';
-
+import { Common} from '../../models/common'
 @Component({
   selector: 'app-head',
   templateUrl: './head.component.html',
@@ -45,7 +45,7 @@ export class HeadComponent implements OnInit,AfterViewInit {
 
 
   AddDatahead() {
-    var arrayy = {
+    var arrayy : Common = {
       id: 10, name: 'john head'
     }
     

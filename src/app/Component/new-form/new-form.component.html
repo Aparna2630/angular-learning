@@ -1,0 +1,73 @@
+<div class="container mt-5">
+    <div class="form-area">
+        <form [formGroup]="userForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Full Name" class="form-control" formControlName="fullName"
+                    name="fullName" [ngClass]="{'is-invalid' : isSubmitted && f.fullName.errors}">
+
+                <div class="alert alert-danger" *ngIf="isSubmitted && f.fullName.errors">
+                    <div *ngIf="f.fullName.errors['required']">
+                        Full Name is Required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label>Email</label>
+                <input type="text" placeholder="Email" class="form-control" formControlName="email" name="email" [ngClass]="{'is-invalid' : isSubmitted && f.email.errors}">
+          
+                <div class="alert alert-danger" *ngIf="isSubmitted && f.email.errors">
+                    <div *ngIf="f.email.errors['required']">
+                        Email is Required
+                    </div>
+                    <div *ngIf="f.email.errors['email']">
+                        Invalid Email
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label>Address</label>
+                <textarea placeholder="Address" class="form-control" formControlName="Address" name="Address" [ngClass]="{'is-invalid' : isSubmitted && f.Address.errors}"></textarea>
+                    <div class="alert alert-danger" *ngIf="isSubmitted && f.Address.errors">
+                        <div *ngIf="f.Address.errors['required']">
+                            Address is Required
+                        </div>
+                    </div>
+
+            </div>
+
+            <div formGroupName="ContactDetails">
+
+                <div class="form-group mt-3">
+                    <label>Mobile Number</label>
+                    <input type="text" placeholder="Mobile Number" class="form-control" formControlName="mobile"
+                        name="mobile" [ngClass]="{'is-invalid' : isSubmitted && contactf.mobile}">
+    
+                  <!--   <div class="alert alert-danger" *ngIf="isSubmitted && contactf.mobile.errors">
+                        <div *ngIf="contactf.mobile.errors['required']">
+                            Mobile Number is Required
+                        </div>
+                    </div> -->
+                </div>
+                <div class="form-group mt-3">
+                    <label>Alternate Mobile Number</label>
+                    <input type="text" placeholder="Alternate Mobile Number" class="form-control" formControlName="alternateMobile"
+                        name="alternateMobile" [ngClass]="{'is-invalid' : isSubmitted && contactf.alternateMobile.errors}">
+    
+                    <div class="alert alert-danger" *ngIf="isSubmitted && contactf.alternateMobile.errors">
+                        <div *ngIf="contactf.alternateMobile.errors['required']">
+                            Alternate Mobile Number is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="button mt-3">
+                <button class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
