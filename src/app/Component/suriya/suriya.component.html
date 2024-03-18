@@ -1,0 +1,35 @@
+<!-- 
+<div class="container">
+    <div class="form-area">
+        <div class="form-group">
+            <label>Feild 1</label>
+            <input type="text" class="form-control" [(ngModel)]="value1">
+            <label>Feild 2</label>
+            <input type="text" class="form-control" [(ngModel)]="value2">
+            <div class="alert alert-danger" *ngIf="+(value1) > +(value2)">
+                Value 1
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="container">
+    <form [formGroup]="suriyaForm">
+        <div class="form-area">
+            <div class="form-group">
+                <label>Feild 1</label>
+                <input type="text" class="form-control" name="value1" formControlName="value1">
+                <label>Feild 2</label>
+                <input type="text" class="form-control" name="value2" formControlName="value2">
+                <div *ngIf="suriyaForm.errors" class="alert alert-danger">
+                    <div *ngIf="suriyaForm.errors['suriyaValidation']">
+                        value1 is greater than value2
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { nospace } from '../validations/nospace.validators';
 
 @Component({
   selector: 'app-new-form',
@@ -9,8 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class NewFormComponent {
   isSubmitted: boolean = false
 
+  constructor(public fb: FormBuilder) { }
   userForm = new FormGroup({
-    fullName: new FormControl('', [Validators.required]),
+    fullName: new FormControl('', [Validators.required,nospace.noSpceValidation]),
     email: new FormControl('', [Validators.required, Validators.email]),
     Address: new FormControl('', [Validators.required]),
     ContactDetails: new FormGroup({
@@ -19,6 +21,15 @@ export class NewFormComponent {
     })
   })
 
+  // userForm = this.fb.group({
+  //   fullName: ['', nospace.noSpceValidation],
+  //   email: [''],
+  //   Address: [''],
+  //   ContactDetails: this.fb.group({
+  //     mobile: [''],
+  //     alternateMobile: [''],
+  //   })
+  // })
   get f() {
     return this.userForm.controls
   }
