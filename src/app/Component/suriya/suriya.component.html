@@ -20,13 +20,12 @@
         <div class="form-area">
             <div class="form-group">
                 <label>Feild 1</label>
-                <input type="text" class="form-control" name="value1" formControlName="value1">
+                <input type="text" class="form-control" name="value1" formControlName="value1" (input)="suriyaValidationFn()">
                 <label>Feild 2</label>
-                <input type="text" class="form-control" name="value2" formControlName="value2">
+                <input type="text" class="form-control" name="value2" formControlName="value2" (input)="suriyaValidationFn()">
                 <div *ngIf="suriyaForm.errors" class="alert alert-danger">
                     <div *ngIf="suriyaForm.errors['suriyaValidation']">
                         value1 is greater than value2
-
                     </div>
                 </div>
             </div>
